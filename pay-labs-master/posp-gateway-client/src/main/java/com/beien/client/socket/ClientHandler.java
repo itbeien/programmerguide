@@ -7,9 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author beien
- * @date 2023/3/9 21:52
- * Copyright© 2023 beien
+ * @author itbeien
+ * 项目网站：https://www.itbeien.cn
+ * 公众号：贝恩聊架构
+ * 全网同名，欢迎小伙伴们关注
+ * Copyright© 2024 itbeien
  */
 public class ClientHandler extends SimpleChannelInboundHandler {
 

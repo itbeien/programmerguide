@@ -16,9 +16,11 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.Callable;
 
 /**
- * @author beien
- * @date 2023/3/9 22:11
- * Copyright© 2023 beien
+ * @author itbeien
+ * 项目网站：https://www.itbeien.cn
+ * 公众号：贝恩聊架构
+ * 全网同名，欢迎小伙伴们关注
+ * Copyright© 2024 itbeien
  */
 @Component("nettyClient")
 public class NettyClient implements Callable<Channel> {
