@@ -1,0 +1,15 @@
+dubbo:
+  registry:
+    address: nacos://${nacos.address:192.168.0.105}:8848?username=nacos&password=nacos
+    register-mode: instance
+  protocol:
+    name: tri
+    port: 50051
+  application:
+    qos-enable: true
+    name: PayDubboApplication
+    qos-port: 22222
+    qos-accept-foreign-ip: false
+    logger: slf4j
+    parameters:
+      namespace: 84c5ce16-6784-412d-8da8-d42310249cc8

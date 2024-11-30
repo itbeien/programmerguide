@@ -1,0 +1,16 @@
+dubbo:
+  registry:
+    address: nacos://${nacos.address:127.0.0.1}:8848?username=nacos&password=nacos
+    register-mode: instance
+  protocol:
+    name: tri
+    port: 50051
+  application:
+    qos-enable: true
+    name: GatewayApplication
+    qos-port: 33333
+    qos-accept-foreign-ip: false
+    logger: slf4j
+netty:
+  port: 8600
+  url: 127.0.0.1
