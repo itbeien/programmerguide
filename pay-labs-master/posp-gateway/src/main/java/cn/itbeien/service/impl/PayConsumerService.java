@@ -64,6 +64,11 @@ public class PayConsumerService implements IPayConsumerService {
         return payFeign.orderFromClient(jsonObject);
     }
 
+    @Override
+    public String callFeignSignService(JSONObject jsonObject) {
+        return payFeign.signFromClient(jsonObject);
+    }
+
     //实例化 RestTemplate 实例
      @Bean
      @LoadBalanced  //负载均衡

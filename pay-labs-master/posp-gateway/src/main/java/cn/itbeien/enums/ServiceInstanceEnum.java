@@ -8,7 +8,8 @@ package cn.itbeien.enums;
  * 维护服务地址的枚举类
  */
 public enum ServiceInstanceEnum {
-    PayServiceURL("/api/pay","支付微服务url")
+    PayServiceURL("/api/pay","支付微服务url"),
+    SIGN("/api/sign","支付微服务-签到url")
     ;
     private String code;
     private String desc;

@@ -23,4 +23,11 @@ public class PayController {
         log.info("进入测试接口...{}",data);
         return "ok";
     }
+
+
+    @PostMapping("/sign")
+    public String sign(@RequestBody JSONObject data){
+        log.info("进入测试接口,用于测试POS签到...{}",data);
+        return "ok";
+    }
 }

@@ -15,5 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface PayFeign {
     @RequestMapping(value = "/api/pay",method = RequestMethod.POST)
     String orderFromClient(JSONObject jsonObject);
+
+    @RequestMapping(value = "/api/sign",method = RequestMethod.POST)
+    String signFromClient(JSONObject jsonObject);
 }
 

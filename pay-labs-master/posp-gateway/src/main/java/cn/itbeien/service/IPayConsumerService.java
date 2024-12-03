@@ -13,4 +13,6 @@ import com.alibaba.fastjson2.JSONObject;
 public interface IPayConsumerService {
     public String callPayService(JSONObject jsonObject);
     public String callFeignPayService(JSONObject jsonObject);
+
+    public String callFeignSignService(JSONObject jsonObject);
 }

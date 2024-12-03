@@ -1,5 +1,8 @@
 package cn.itbeien.socket;
 
+import cn.itbeien.protocol.codec.ProtocolDecode;
+import cn.itbeien.protocol.codec.ProtocolEncode;
+import cn.itbeien.socket.handler.PosHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
@@ -17,12 +20,19 @@ import org.springframework.stereotype.Component;
  */
 @Component  //交给spring容器去管理
 public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> {
+   /* @Autowired
+    private ServerHandler serverHandler;*/
     @Autowired
-    private ServerHandler serverHandler;
+    private PosHandler posHandler;
     @Override
     protected void initChannel(SocketChannel channel) throws Exception {
-        channel.pipeline().addLast("decoder",new StringDecoder(CharsetUtil.UTF_8));
-        channel.pipeline().addLast("encoder",new StringEncoder(CharsetUtil.UTF_8));
-        channel.pipeline().addLast(serverHandler);
+        //协议传输处理[解码]
+        channel.pipeline().addLast("decoder",new ProtocolDecode());
+        //channel.pipeline().addLast("decoder",new StringDecoder(CharsetUtil.UTF_8));
+        //channel.pipeline().addLast("encoder",new StringEncoder(CharsetUtil.UTF_8));
+        //channel.pipeline().addLast(serverHandler);
+        channel.pipeline().addLast(posHandler);
+        //协议传输处理[编码]
+        channel.pipeline().addLast("encoder",new ProtocolEncode());
     }
 }

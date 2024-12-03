@@ -3,6 +3,7 @@ package cn.itbeien.socket;
 
 import cn.itbeien.service.IPayConsumerService;
 import com.alibaba.fastjson2.JSONObject;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Component;
  * Copyright© 2024 itbeien
  */
 @Component
-public class ServerHandler extends SimpleChannelInboundHandler {
+public abstract class ServerHandler<T> extends SimpleChannelInboundHandler<T> {
 
    @Autowired
    private IPayConsumerService payConsumerService;
@@ -26,11 +27,14 @@ public class ServerHandler extends SimpleChannelInboundHandler {
     protected Logger logger = LoggerFactory.getLogger(ServerHandler.class);
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, T msg) throws Exception {
         logger.info("服务名称+ip+ServerHandler.channelRead0 接收客戶端消息:{}",msg);//知道现在流程走到哪一步了
         //payConsumerService.callPayService(JSONObject.parseObject(String.valueOf(msg)));//支付服务
-        payConsumerService.callFeignPayService(JSONObject.parseObject(String.valueOf(msg)));//支付服务
+        //payConsumerService.callFeignPayService(JSONObject.parseObject(String.valueOf(msg)));//支付服务
+        channelRead(ctx.channel(), msg);
     }
+
+    public abstract void channelRead(Channel channel, T msg);
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
