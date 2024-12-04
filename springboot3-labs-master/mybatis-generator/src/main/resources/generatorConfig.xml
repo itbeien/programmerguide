@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 去除生成的注解 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 数据库连接配置 -->
+        <!-- 注意xml中不支持&，用&amp;代替 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.0.104:3306/springboot3?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+                        userId="root" password="rootpwd20240809"></jdbcConnection>
+
+        <!-- 处理NUMERIC和DECIMAL类型的策略 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--配置pojo entity生成的位置 -->
+        <javaModelGenerator targetPackage="cn.itbeien.mybatis.entity"  targetProject="E:\gitee\knowledge\programmer-guide\springboot3-labs-master\spingboot-mybatis\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 配置sql映射文件的生成位置 -->
+        <sqlMapGenerator targetPackage="mapper.test" targetProject="E:\gitee\knowledge\programmer-guide\springboot3-labs-master\spingboot-mybatis\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 配置dao接口的生成位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.itbeien.mybatis.dao"
+                             targetProject="E:\gitee\knowledge\programmer-guide\springboot3-labs-master\spingboot-mybatis\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaClientGenerator>
+
+        <!-- 指定逆向依据的数据表 -->
+        <table tableName="sys_user_mybatis" domainObjectName="SysUser"/>
+    </context>
+</generatorConfiguration>
