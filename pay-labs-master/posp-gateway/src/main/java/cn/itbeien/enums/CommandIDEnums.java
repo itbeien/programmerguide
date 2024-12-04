@@ -1,5 +1,13 @@
 package cn.itbeien.enums;
 
+
+/**
+ * @author itbeien
+ * 项目网站：https://www.itbeien.cn
+ * 公众号：贝恩聊架构
+ * 全网同名，欢迎小伙伴们关注
+ * Copyright© 2024 itbeien
+ */
 public enum CommandIDEnums {
 
     SignIn(0x80000001,"签到")
