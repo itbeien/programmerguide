@@ -1,0 +1,14 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: itbeien-spring-cloud-sentinel-nacos  #微服务名称
+  cloud:
+    nacos:
+      config:  #配置nacos配置中心地址
+        server-addr: 127.0.0.1:3333
+        username: nacos
+        password: nacos
+        file-extension: yml   # 指定配置文件的扩展名为yml
+        namespace: 161e6331-28c5-40c3-9c93-c22c7658d504
+        group: dev

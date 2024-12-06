@@ -1,0 +1,7 @@
+minio:
+  endpoint: http://192.168.8.8
+  port: 9000
+  accessKey: 3PDQa0c72ncnpwvc0RPU
+  secretKey: hcEKhVEW6ULIAWm9Td1QjgcMrJF59CdDMb9YboV1
+  bucketName: itbeien
+  secure: false

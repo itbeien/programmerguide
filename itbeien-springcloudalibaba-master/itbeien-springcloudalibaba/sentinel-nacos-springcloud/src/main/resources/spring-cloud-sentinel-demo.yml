@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: itbeien-spring-cloud-sentinel-nacos  #微服务名称
+
+  cloud:
+    nacos:  #配置nacos注册中心地址
+      discovery:
+        server-addr: 127.0.0.1:3333
+        username: nacos
+        password: nacos
+
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 127.0.0.1:8080
+      # 配置为false
+      web-context-unify: false
+      datasource:
+        flow-rules: #流控规则
+          nacos:
+            server-addr: 127.0.0.1:3333
+            namespace: 161e6331-28c5-40c3-9c93-c22c7658d504
+            username: nacos
+            password: nacos
+            dataId: ${spring.application.name}-flow-rules
+            groupId: dev   # 注意groupId对应Sentinel Dashboard中的定义
+            data-type: json
+            rule-type: flow
+        degrade-rules: #降级规则
+          nacos:
+            server-addr: 127.0.0.1:3333
+            namespace: 161e6331-28c5-40c3-9c93-c22c7658d504
+            dataId: ${spring.application.name}-degrade-rules
+            groupId: dev
+            data-type: json
+            rule-type: degrade
+        param-flow-rules:
+          nacos:
+            server-addr: 127.0.0.1:3333
+            namespace: 161e6331-28c5-40c3-9c93-c22c7658d504
+            dataId: ${spring.application.name}-param-flow-rules
+            groupId: dev
+            data-type: json
+            rule-type: param-flow
+        authority-rules:
+          nacos:
+            server-addr: 127.0.0.1:3333
+            namespace: 161e6331-28c5-40c3-9c93-c22c7658d504
+            dataId: ${spring.application.name}-authority-rules
+            groupId: dev
+            data-type: json
+            rule-type: authority
+        system-rules:
+          nacos:
+            server-addr: 127.0.0.1:3333
+            namespace: 161e6331-28c5-40c3-9c93-c22c7658d504
+            dataId: ${spring.application.name}-system-rules
+            groupId: dev
+            data-type: json
+            rule-type: system
+

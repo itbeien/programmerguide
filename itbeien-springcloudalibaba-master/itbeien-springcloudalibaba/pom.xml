@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.itbeien</groupId>
+    <artifactId>itbeien-springcloudalibaba</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>sentinel-nacos-springcloud</module>
+        <module>itbeien-mall</module>
+        <module>itbeien-pay</module>
+    </modules>
+    <properties>
+        <springboot-version>2.7.18</springboot-version>
+        <!--<springboot-version>2.3.12.RELEASE</springboot-version>-->
+        <springcloudalibaba-version>2021.0.5.0</springcloudalibaba-version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
+       <!-- <springcloudalibaba-version>2021.1</springcloudalibaba-version>-->
+        <lombok-version>1.18.30</lombok-version>
+        <sentinel-version>1.8.7</sentinel-version>
+       <!-- <nacos-version>2.2.3.RELEASE</nacos-version>-->
+        <jackson-databind-version>2.17.0</jackson-databind-version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>${springboot-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${springcloudalibaba-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-datasource-nacos</artifactId>
+                <version>${sentinel-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${springcloudalibaba-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind-version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+
+</project>

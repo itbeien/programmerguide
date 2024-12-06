@@ -1,0 +1,50 @@
+
+package cn.itbeien.init;
+
+import com.alibaba.csp.sentinel.datasource.FileWritableDataSource;
+import com.alibaba.csp.sentinel.datasource.ReadableDataSource;
+import com.alibaba.csp.sentinel.datasource.WritableDataSource;
+import com.alibaba.csp.sentinel.datasource.nacos.NacosDataSource;
+import com.alibaba.csp.sentinel.init.InitFunc;
+import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
+import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
+import com.alibaba.csp.sentinel.transport.util.WritableDataSourceRegistry;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+import com.alibaba.nacos.api.PropertyKeyConst;
+
+import java.util.List;
+import java.util.Properties;
+/**
+ * @author beien
+ * @date 2024-04-06 23:15
+ * Copyright© 2024 beien
+ * 添加数据源jar->实现InitFunc接口->创建META-INF/services和 com.alibaba.csp.sentinel.init.InitFunc文件
+ * 这样，当初次访问任意资源的时候，Sentinel 就可以自动去注册对应的数据源了
+ **/
+public class DataSourceInitFunc implements InitFunc {
+    @Override
+    public void init() throws Exception {
+        final String remoteAddress = "localhost:3333";
+        final String nacosNamespaceId = "772c8d40-00a8-47dd-8eeb-dfe19fb76aa8";
+        final String groupId = "dev";
+        final String dataId = "itbeien-spring-cloud-sentinel-nacos-flow-rules";
+        Properties properties = new Properties();
+        properties.put(PropertyKeyConst.SERVER_ADDR, remoteAddress);
+        properties.put(PropertyKeyConst.NAMESPACE, nacosNamespaceId);
+        properties.put(PropertyKeyConst.USERNAME, "nacos");
+        properties.put(PropertyKeyConst.PASSWORD, "nacos");
+        //数据源注册至指定的规则管理器中
+        ReadableDataSource<String, List<FlowRule>> flowRuleDataSource = new NacosDataSource<>(properties, groupId, dataId,
+                source -> JSON.parseObject(source, new TypeReference<List<FlowRule>>() {}));
+        // 将可读数据源注册至 FlowRuleManager.
+        FlowRuleManager.register2Property(flowRuleDataSource.getProperty());
+
+        //WritableDataSource<List<FlowRule>> wds = new FileWritableDataSource<>(flowRuleDataSource, this::encodeJson);
+        // 将可写数据源注册至 transport 模块的 WritableDataSourceRegistry 中.
+        // 这样收到控制台推送的规则时，Sentinel 会先更新到内存，然后将规则写入到文件中.
+        //WritableDataSourceRegistry.registerFlowDataSource(wds);
+    }
+}
+
+
