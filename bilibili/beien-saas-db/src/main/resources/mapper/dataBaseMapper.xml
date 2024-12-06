@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beien.dao.DBDao">
+
+    <!--2转出-->
+    <update id="executeCreateDB">
+        CREATE DATABASE IF NOT EXISTS ${dbName} DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    </update>
+    <update id="executeCreateTableSQL">
+        ${createTableSQL}
+    </update>
+
+    <update id="rollbackSQL">
+        ${createSQL}
+    </update>
+
+    <select id="selectCreateTable" resultType="string">
+        select tableSql from s_create_table where entityName=#{entityName}
+    </select>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itbeien.root.dao.master.TenantConfigDao" >
+
+    <select id="loadTenantConfig" resultType="cn.itbeien.root.saas.ds.vo.TenantConfigVO">
+        SELECT tc.TENANT_CODE tenantCode, dc.ID databaseId, dc.DB_MODEL dbModel
+        FROM SYS_TENANT_CONFIG_DBC_RELATION tcr LEFT JOIN SYS_TENANT_CONFIG tc ON tc.ID = tcr.TENANT_CONFIG_ID
+		LEFT JOIN SYS_DATABASE_CONFIG dc ON dc.ID = tcr.DATABASE_CONFIG_ID
+		WHERE tc.`STATUS` = 'UP'
+    </select>
+
+    <select id="loadTenantConfigByTenantCode" resultType="cn.itbeien.root.saas.ds.vo.TenantConfigVO">
+        SELECT tc.TENANT_CODE tenantCode, dc.ID databaseId, dc.DB_MODEL dbModel
+        FROM SYS_TENANT_CONFIG_DBC_RELATION tcr LEFT JOIN SYS_TENANT_CONFIG tc ON tc.ID = tcr.TENANT_CONFIG_ID
+		LEFT JOIN SYS_DATABASE_CONFIG dc ON dc.ID = tcr.DATABASE_CONFIG_ID
+		WHERE tc.`STATUS` = 'UP' AND tc.TENANT_CODE = #{tCode}
+    </select>
+
+    <select id="loadTenantCode" resultType="cn.itbeien.root.saas.ds.vo.TenantBussinessObjVo">
+       SELECT tc.TENANT_CODE tenantCode, tcbr.BUSSINESS_CODE bussinessObjCode
+       FROM SYS_TENANT_CONFIG_BUSSINESS_RELATION tcbr LEFT JOIN SYS_TENANT_CONFIG tc ON tc.ID = tcbr.TENANT_CONFIG_ID
+       WHERE tc.`STATUS` = 'UP'
+    </select>
+
+    <select id="loadMasterTenantCode" resultType="cn.itbeien.root.saas.ds.vo.TenantConfigVO">
+        SELECT tc.TENANT_CODE tenantCode, dc.ID databaseId, dc.DB_MODEL dbModel
+        FROM SYS_TENANT_CONFIG_DBC_RELATION tcr LEFT JOIN SYS_TENANT_CONFIG tc ON tc.ID = tcr.TENANT_CONFIG_ID
+		LEFT JOIN SYS_DATABASE_CONFIG dc ON dc.ID = tcr.DATABASE_CONFIG_ID
+		WHERE tc.`STATUS` = 'UP' AND dc.DB_MODEL = 'READ_WRITE'
+		<if test="null!=tCode and tCode!=''">
+            AND tc.TENANT_CODE =#{tCode}
+        </if>
+    </select>
+
+
+    <select id="findDatabaseConfigByDatabaseId" resultType="cn.itbeien.root.saas.ds.entity.DatabaseConfig" parameterType="java.lang.Integer">
+        SELECT
+	        ID id, ALIAS_NAME aliasName, DB_MODEL dbModel, DB_TYPE dbType, DB_USERNAME dbUsername,
+	        DB_PASSWORD dbPassword, DRIVER_URL driverUrl, DB_IP dbIp, DB_PORT dbPort,
+		    DB_NAME dbName, DRIVER_CLASS_NAME driverClassName, INITIAL_SIZE initialSize,
+		    MAX_ACTIVE maxActive, MAX_POOL_PREPARED_STATEMENT_PER_CONNECTION_SIZE maxPoolPreparedStatementPerConnectionSize,
+		    MAX_WAIT maxWait, MIN_EVICTABLE_IDLE_TIME_MILLIS minEvictableIdleTimeMillis, MIN_IDLE minIdle,
+		    POOL_PREPARED_STATEMENTS poolPreparedStatements, TEST_ON_BORROW testOnBorrow,
+		    TEST_WHILE_IDLE testWhileIdle,
+		    TIME_BETWEEN_EVICTION_RUNS_MILLIS timeBetweenEvictionRunsMillis, VALIDATION_QUERY validationQuery
+        FROM SYS_DATABASE_CONFIG
+        WHERE ID = #{id}
+    </select>
+</mapper>

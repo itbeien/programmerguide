@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis的DTD约束-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace 名称空间，必须配置为 Mapper 接口的全限定名-->
+<mapper namespace="com.beien.dao.UserDao">
+    <!--由于【数据库字段】与【bean实体类字段】不一致，
+	因此这里需要配置【数据库字段】和【bean实体类字段】的对应关系-->
+    <resultMap id="user" type="com.beien.pojo.UserInfo">
+        <id column="id" property="id" />
+        <result column="username" property="name" />
+        <result column="age" property="age" />
+    </resultMap>
+
+    <!--配置公用的 SQL 语句，方面下面进行引用-->
+    <sql id="select" >SELECT id,username,age FROM t_user</sql>
+
+    <!--查询全部，这里的 id 必须与  Mapper 接口中的对应的方法名称完全相同-->
+    <!--resultMap 表示将查询结构中每条记录，封装成 employee_map 所对应的 employee 实体对象-->
+    <select id="selectAll" resultMap="user">
+        <include refid="select"/> order by id;
+    </select>
+
+    <!--根据id查询，parameterType 表示传入的参数类型-->
+   <!-- <select id="selectById" resultMap="employee_map" parameterType="int">
+        <include refid="select"/> WHERE e_id = #{id}
+    </select>-->
+
+    <!--新增数据，由于在 Mybatis 的核心配置文件，已经配置了 bean 的别名即为类名
+	因此这里可以直接使用 bean 的类名作为参数类型-->
+   <!-- <insert id="insert" parameterType="employee">
+        insert into employee(e_id,e_name,e_age) VALUES (#{id},#{name},#{age})
+    </insert>-->
+
+    <!--修改数据-->
+    <!--<update id="update" parameterType="employee">
+        UPDATE employee SET e_name = #{name},e_age = #{age} WHERE e_id = #{id}
+    </update>-->
+
+    <!--删除数据-->
+    <delete id="delete" parameterType="int">
+        DELETE FROM employee WHERE e_id = #{id}
+    </delete>
+
+    <!--根据条件查询-->
+    <!--<select id="selectCondition" resultMap="employee_map" parameterType="employee">
+        <include refid="select"/>
+        <where>
+            &lt;!&ndash;根据条件，动态拼接SQL语句&ndash;&gt;
+            <if test="id != null">
+                e_id = #{id}
+            </if>
+            <if test="name != null">
+                AND e_name like CONCAT('%',#{name},'%')
+            </if>
+            <if test="age != null">
+                AND e_age = #{age}
+            </if>
+        </where>
+        order by e_id desc
+    </select>-->
+
+    <!--根据多个id查询-->
+    <!--<select id="selectByIds" resultMap="employee_map" parameterType="list">
+        <include refid="select"/>
+        <where>
+            &lt;!&ndash;通过循环拼接 SQL 语句&ndash;&gt;
+            <foreach collection="list" open="e_id IN (" close=")" item="id" separator=",">
+                #{id}
+            </foreach>
+        </where>
+    </select>-->
+</mapper>
