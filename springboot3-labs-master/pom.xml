@@ -21,6 +21,7 @@
         <module>spingboot-mybatis</module>
         <module>mybatis-generator</module>
         <module>springboot-mybatis-nacos</module>
+        <module>dynamic-datasource-mybatis-plus</module>
     </modules>
 
     <properties>
