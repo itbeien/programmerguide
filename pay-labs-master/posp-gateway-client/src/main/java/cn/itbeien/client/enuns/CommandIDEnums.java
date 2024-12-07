@@ -1,6 +1,5 @@
 package cn.itbeien.client.enuns;
 
-
 /**
  * @author itbeien
  * 项目网站：https://www.itbeien.cn
