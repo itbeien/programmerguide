@@ -25,6 +25,7 @@
         <module>springboot-mapstruct</module>
         <module>springboot-mapstruct-lombok</module>
         <module>springboot-rocketmq</module>
+        <module>springboot-redisson</module>
     </modules>
 
     <properties>
@@ -41,6 +42,8 @@
         <mapstruct-processor-version>1.5.5.Final</mapstruct-processor-version>
         <rocketmq-spring-boot-starter-version>2.3.1</rocketmq-spring-boot-starter-version>
         <fastjson-vesion>2.0.53</fastjson-vesion>
+        <redisson-spring-boot-starter-version>3.38.1</redisson-spring-boot-starter-version>
+        <contiperf-version>2.3.4</contiperf-version>
     </properties>
 
     <dependencyManagement>
@@ -96,6 +99,16 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson-vesion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson-spring-boot-starter-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.databene</groupId>
+                <artifactId>contiperf</artifactId>
+                <version>${contiperf-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

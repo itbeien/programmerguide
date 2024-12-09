@@ -1,0 +1,23 @@
+# 在 application.yml 文件中，配置 Redis 的连接信息，该配置以单机版 Redis 为例。config: 后面跟着一个管道符 (|)，表示一个多行字符串，也就是一个整体
+server:
+  port: 1002
+
+spring:
+  redis:
+    redisson:
+      config: |
+        singleServerConfig:
+          address: redis://192.168.0.104:6379 # Redis 连接地址，前缀为 redis://
+          password: Rootpwd20240809    # 如果 Redis 需要密码认证，则填写密码
+          timeout: 3000 # 命令执行超时时间(毫秒)
+
+#spring:
+#  redis:
+#    redisson:
+#      config: |
+#        clusterServersConfig:
+#          password:
+#          nodeAddresses:
+#          - redis://192.168.0.111:6379
+#          - redis://192.168.0.115:6379
+#          - redis://192.168.0.116:6379
