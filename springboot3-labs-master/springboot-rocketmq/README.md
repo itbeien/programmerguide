@@ -1,0 +1,1 @@
+[04RocketMQ5.3.1集成SpringBoot3.4.0就这样简单](https://www.itbeien.cn/tech/SpringBoot3/04RocketMQ5.3.1%E9%9B%86%E6%88%90SpringBoot3.4.0%E5%B0%B1%E8%BF%99%E6%A0%B7%E7%AE%80%E5%8D%95.html)
