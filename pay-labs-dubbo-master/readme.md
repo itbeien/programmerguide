@@ -1,0 +1,1 @@
+[08JDK17+Dubbo3.3.2搭建企业级支付系统-预付卡支付交易微服务](https://www.itbeien.cn/tech/microservice/08JDK17_Dubbo3.3.2%E6%90%AD%E5%BB%BA%E4%BC%81%E4%B8%9A%E7%BA%A7%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F-%E9%A2%84%E4%BB%98%E5%8D%A1%E6%94%AF%E4%BB%98%E4%BA%A4%E6%98%93%E5%BE%AE%E6%9C%8D%E5%8A%A1.html) [|pay-dubbo](pay-dubbo)  [|pay-api-dubbo](pay-api-dubbo) 
