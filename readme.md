@@ -32,6 +32,8 @@
 
 [06MySQL增量数据同步利器Canal1.1.7环境搭建流程](https://www.itbeien.cn/tech/SpringBoot3/06MySQL%E5%A2%9E%E9%87%8F%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%88%A9%E5%99%A8Canal1.1.7%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B.html)
 
+[07SpringBoot3.4.0集成Canal1.1.7实现MySQL实时同步数据到Redis](https://www.itbeien.cn/tech/SpringBoot3/07SpringBoot3.4.0%E9%9B%86%E6%88%90Canal1.1.7%E5%AE%9E%E7%8E%B0MySQL%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E5%88%B0Redis.html)
+
 ## 3 项目实战介绍
 
 [贝恩聊架构-项目实战介绍](https://www.itbeien.cn/)
