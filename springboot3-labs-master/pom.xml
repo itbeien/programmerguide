@@ -26,6 +26,7 @@
         <module>springboot-mapstruct-lombok</module>
         <module>springboot-rocketmq</module>
         <module>springboot-redisson</module>
+        <module>springboot-canal</module>
     </modules>
 
     <properties>
