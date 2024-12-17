@@ -27,6 +27,7 @@
         <module>springboot-rocketmq</module>
         <module>springboot-redisson</module>
         <module>springboot-canal</module>
+        <module>springboot-apachepulsar</module>
     </modules>
 
     <properties>
