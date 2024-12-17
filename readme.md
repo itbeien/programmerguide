@@ -34,6 +34,8 @@
 
 [07SpringBoot3.4.0集成Canal1.1.7实现MySQL实时同步数据到Redis](https://www.itbeien.cn/tech/SpringBoot3/07SpringBoot3.4.0%E9%9B%86%E6%88%90Canal1.1.7%E5%AE%9E%E7%8E%B0MySQL%E5%AE%9E%E6%97%B6%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E5%88%B0Redis.html)
 
+[08基于Docker-SpringBoot3.4.0集成Apache Pulsar4.0.1实现消息发布和订阅](https://www.itbeien.cn/tech/SpringBoot3/08%E5%9F%BA%E4%BA%8EDocker-SpringBoot3.4.0%E9%9B%86%E6%88%90Apache%20Pulsar4.0.1%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85.html)
+
 ## 3 项目实战介绍
 
 [贝恩聊架构-项目实战介绍](https://www.itbeien.cn/)
