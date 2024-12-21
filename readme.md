@@ -36,6 +36,8 @@
 
 [08基于Docker-SpringBoot3.4.0集成Apache Pulsar4.0.1实现消息发布和订阅](https://www.itbeien.cn/tech/SpringBoot3/08%E5%9F%BA%E4%BA%8EDocker-SpringBoot3.4.0%E9%9B%86%E6%88%90Apache%20Pulsar4.0.1%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85.html)
 
+[09SpringBoot3.4.0整合消息中间件Kafka和RabbitMQ](https://www.itbeien.cn/tech/SpringBoot3/09SpringBoot3.4.0%E6%95%B4%E5%90%88%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6Kafka%E5%92%8CRabbitMQ.html)
+
 ## 3 项目实战介绍
 
 [贝恩聊架构-项目实战介绍](https://www.itbeien.cn/)
