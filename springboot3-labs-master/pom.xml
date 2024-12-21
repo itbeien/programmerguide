@@ -28,6 +28,8 @@
         <module>springboot-redisson</module>
         <module>springboot-canal</module>
         <module>springboot-apachepulsar</module>
+        <module>springboot-kafka</module>
+        <module>springboot-rabbitmq</module>
     </modules>
 
     <properties>
