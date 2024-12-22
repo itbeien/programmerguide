@@ -30,6 +30,7 @@
         <module>springboot-apachepulsar</module>
         <module>springboot-kafka</module>
         <module>springboot-rabbitmq</module>
+        <module>springboot-activemq</module>
     </modules>
 
     <properties>
