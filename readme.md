@@ -38,6 +38,8 @@
 
 [09SpringBoot3.4.0整合消息中间件Kafka和RabbitMQ](https://www.itbeien.cn/tech/SpringBoot3/09SpringBoot3.4.0%E6%95%B4%E5%90%88%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6Kafka%E5%92%8CRabbitMQ.html)
 
+[10SpringBoot3.4.0整合ActiveMQ6.1.4](https://www.itbeien.cn/tech/SpringBoot3/10SpringBoot3.4.0%E6%95%B4%E5%90%88ActiveMQ.html)
+
 ## 3 项目实战介绍
 
 [贝恩聊架构-项目实战介绍](https://www.itbeien.cn/)
